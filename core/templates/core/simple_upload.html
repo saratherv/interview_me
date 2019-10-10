@@ -1,0 +1,26 @@
+
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Simple File Upload</title>
+  </head>
+  <body>
+  
+<div>Who invented Java Language?</div>
+<div>upload audio now to check if answer is correct or not:</div>
+{% load static %}
+
+
+  <form method="post" enctype="multipart/form-data">
+    {% csrf_token %}
+    <input type="file" name="myfile">
+    <button type="submit">Upload</button>
+  </form>
+
+  {% if answer_success %}
+    <p>your answer score: <a href="{{ answer_success }}">{{ answer_success }}</a></p>
+  {% endif %}
+
+</body>
+</html>
